@@ -181,12 +181,12 @@ function App() {
               <h2 style={{ color: colors.textMain, marginTop: 0, marginBottom: '8px', fontSize: '1.8rem' }}>
                 Kaggle
               </h2>
-              <span style={{ background: '#f1f5f9', color: colors.textMuted, padding: '6px 12px', borderRadius: '20px', fontSize: '0.85rem', fontWeight: '600' }}>
-                Python • Machine Learning
+              <span style={{ background: '#f1f5f9', color: colors.textMuted, padding: '6px 12px', borderRadius: '20px', fontSize: '0.85rem', fontWeight: '600', marginBottom: '10px' }}>
+                Python • Machine Learning • Data Analysis
               </span>
             </div>
             
-            <p style={{ margin: '0 0 0 0' }}>Machine Learning projects and competitions.</p>
+            <p style={{ margin: '0 0 0 5px' }}>Machine Learning projects and competitions.</p>
 
             <h3 style={{ color: colors.textMain, fontSize: '1.2rem', margin: '15px 0 -10px 0' }}>
               Titanic - Machine Learning from Disaster
