@@ -182,7 +182,7 @@ function App() {
                 Kaggle
               </h2>
               <span style={{ background: '#f1f5f9', color: colors.textMuted, padding: '6px 12px', borderRadius: '20px', fontSize: '0.85rem', fontWeight: '600' }}>
-                Python • Machine Learning • Data Analysis
+                Python • Machine Learning
               </span>
             </div>
             
