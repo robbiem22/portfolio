@@ -47,9 +47,8 @@ function App() {
           I have done after graduation. This portfolio is a react app made all by me from scratch; leveraging Git, GitHub, Firebase, Node.js, Visual Studio Code, Google Colab, and Python.</p>
 
         <div style={{ background: '#f9f9f9', border: '1px solid #ddd', padding: '15px', borderRadius: '5px', marginBottom: '20px' }}>
-          <h2 style={{ marginTop: 0 }}>Kaggle</h2>
+          <h2 style={{ marginTop: 0 }}>Kaggle - Machine Learning Projects and Competitions</h2>
           <p><strong>Tools:</strong> Python, Machine Learning, Data Analysis</p>
-          <p>Machine Learning projects and competitions.</p>
           <h3>Titanic - Machine Learning from Disaster</h3>
           <p>In this challenge, I built predictive models that answer the question: “what sorts of people
             were more likely to survive?” using passenger data (ie name, age, gender, socio-economic class, etc).</p>
