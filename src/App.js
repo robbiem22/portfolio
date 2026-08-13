@@ -101,19 +101,25 @@ function App() {
           .sidebar-column {
             max-width: 100%; 
             width: 100%;
-            top: 10px; 
+            /* Forces it to un-stick on mobile */
+            position: static; 
           }
           .sidebar-card {
-            padding: 15px !important; 
+            padding: 16px !important; 
             margin-bottom: 0 !important;
           }
           .sidebar-title {
             text-align: center; 
+            margin-bottom: 10px !important;
           }
           .links-container {
             flex-direction: row; 
             flex-wrap: wrap; 
             justify-content: center;
+            gap: 2px;
+          }
+          .nav-link {
+            padding: 6px 12px;
           }
           .nav-link:hover {
             transform: translateY(-2px); 
@@ -129,9 +135,11 @@ function App() {
 
       <div className="layout-wrapper" style={{ fontFamily: 'Inter, system-ui, -apple-system, sans-serif', lineHeight: '1.6', color: colors.textMuted }}>
 
-        {/* --- 1. TOP/LEFT COLUMN: Sidebar(Sticky) --- */}
+        {/* --- 1. TOP/LEFT COLUMN: Sidebar --- */}
         <div className="sidebar-column">
+          {/* Using 24px padding here for desktop, overridden to 16px on mobile via CSS */}
           <div className="sidebar-card" style={{ ...cardStyle, padding: '24px' }}>
+            {/* Using 16px margin here for desktop, overridden to 10px on mobile via CSS */}
             <h3 className="sidebar-title" style={{ marginTop: 0, color: colors.textMain, fontSize: '1.1rem', marginBottom: '16px' }}>
               My Links
             </h3>
@@ -178,12 +186,12 @@ function App() {
               </span>
             </div>
             
-            <p style={{ margin: '0 0 20px 0' }}>Machine Learning projects and competitions.</p>
+            <p style={{ margin: '0 0 0 0' }}>Machine Learning projects and competitions.</p>
 
-            <h3 style={{ color: colors.textMain, fontSize: '1.2rem', margin: '20px 0 10px 0' }}>
+            <h3 style={{ color: colors.textMain, fontSize: '1.2rem', margin: '15px 0 -10px 0' }}>
               Titanic - Machine Learning from Disaster
             </h3>
-            <p style={{ marginBottom: '24px' }}>
+            <p style={{ marginBottom: '24px'}}>
               In this challenge, I built predictive models that answer the question: “what sorts of people were more likely to survive?” using passenger data (ie name, age, gender, socio-economic class, etc).
             </p>
             
@@ -217,7 +225,7 @@ function App() {
               </span>
             </div>
             
-            <p style={{ margin: '16px 0 0 0' }}>An exploratory data analysis of event-level data from recent fixtures.</p>
+            <p style={{ margin: '16px 0 20px 5px' }}>An exploratory data analysis of event-level data from recent fixtures.</p>
           </div>
 
         </div>
