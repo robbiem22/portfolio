@@ -1,28 +1,34 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 // Images
-import scores from './top 5.PNG'
+import scores from './img/top 5.PNG';
 
-function App() {
-  // --- STYLES ---
-  const colors = {
-    background: '#f8fafc', 
-    cardBg: '#ffffff',     
-    textMain: '#0f172a',   
-    textMuted: '#475569',  
-    accent: '#2563eb',     
-    border: '#e2e8f0',     
-  };
+// Import new pages
+import TitanicDetails from './TitanicDetails';
+import TitanicCode from './TitanicCode';
 
-  const cardStyle = {
-    background: colors.cardBg,
-    borderRadius: '12px',
-    padding: '30px', 
-    marginBottom: '24px',
-    boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)', 
-    border: `1px solid ${colors.border}`,
-  };
+// --- STYLES
+const colors = {
+  background: '#f8fafc',
+  cardBg: '#ffffff',
+  textMain: '#0f172a',
+  textMuted: '#475569',
+  accent: '#2563eb',
+  border: '#e2e8f0',
+};
 
+const cardStyle = {
+  background: colors.cardBg,
+  borderRadius: '12px',
+  padding: '30px',
+  marginBottom: '24px',
+  boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)',
+  border: `1px solid ${colors.border}`,
+};
+
+// --- MAIN PAGE ---
+function Home() {
   return (
     <>
       <style>{`
@@ -35,10 +41,10 @@ function App() {
         .layout-wrapper {
           display: flex;
           flex-direction: row;
-          justify-content: center;
+          justify-content: left;
           align-items: flex-start;
           gap: 30px;
-          padding: 40px 20px;
+          padding: 40px 120px;
           min-height: 100vh;
         }
         .sidebar-column {
@@ -51,6 +57,7 @@ function App() {
         .main-column {
           width: 100%;
           max-width: 1050px;
+          padding-left: 60px;
         }
         .spacer-column {
           flex: 1;
@@ -74,21 +81,6 @@ function App() {
           background-color: #eff6ff;
           color: ${colors.accent};
           transform: translateX(4px);
-        }
-        
-        .iframe-container {
-          overflow: hidden;
-          border-radius: 8px;
-          border: 1px solid ${colors.border};
-          background: ${colors.background};
-        }
-        .notebook-iframe {
-          width: 106%;
-          height: 700px;
-          margin-top: -130px;
-          margin-bottom: -90px;
-          border: none;
-          display: block;
         }
 
         /* --- MOBILE LAYOUT (Screens smaller than 768px) --- */
@@ -127,20 +119,17 @@ function App() {
           .spacer-column {
             display: none; 
           }
-          .notebook-iframe {
-            height: 460px;
-          }
         }
       `}</style>
 
       <div className="layout-wrapper" style={{ fontFamily: 'Inter, system-ui, -apple-system, sans-serif', lineHeight: '1.6', color: colors.textMuted }}>
 
-        {/* --- 1. TOP/LEFT COLUMN: Sidebar --- */}
+        {/* TOP/LEFT COLUMN: Sidebar */}
         <div className="sidebar-column">
           {/* Using 24px padding here for desktop, overridden to 16px on mobile via CSS */}
           <div className="sidebar-card" style={{ ...cardStyle, padding: '24px' }}>
             {/* Using 16px margin here for desktop, overridden to 10px on mobile via CSS */}
-            <h3 className="sidebar-title" style={{ marginTop: 0, color: colors.textMain, fontSize: '1.1rem', marginBottom: '16px' }}>
+            <h3 className="sidebar-title" style={{ marginTop: 0, color: colors.textMain, fontSize: '1.1rem', marginBottom: '16px', marginLeft: 10 }}>
               My Links
             </h3>
             <div className="links-container">
@@ -152,17 +141,17 @@ function App() {
           </div>
         </div>
 
-        {/* --- 2. MIDDLE/BOTTOM COLUMN: Main Content --- */}
+        {/* MIDDLE/BOTTOM COLUMN: Main Content */}
         <div className="main-column">
-          
+
           {/* Header Section */}
           <div style={{ marginBottom: '40px', paddingLeft: '10px' }}>
-            <h1 style={{ 
-              color: colors.textMain, 
+            <h1 style={{
+              color: colors.textMain,
               fontSize: '2.5rem',
               fontWeight: '800',
               letterSpacing: '-0.5px',
-              margin: '0 0 8px 0' 
+              margin: '0 0 8px 0'
             }}>
               Robbie McNair
             </h1>
@@ -170,7 +159,7 @@ function App() {
               Data Science Portfolio
             </h1>
             <p style={{ maxWidth: '1050px', fontSize: '1.05rem', margin: 0, paddingRight: '10px' }}>
-              Welcome to my professional portfolio! This is designed to showcase all of my individual work 
+              Welcome to my professional portfolio! This is designed to showcase all of my individual work
               I have done after graduation. This portfolio is a react app made all by me from scratch; leveraging Git, GitHub, Firebase, Node.js, Visual Studio Code, Google Colab, and Python.
             </p>
           </div>
@@ -185,33 +174,38 @@ function App() {
                 Python • Machine Learning • Data Analysis
               </span>
             </div>
-            
-            <p style={{ margin: '0 0 0 5px' }}>Machine Learning projects and competitions.</p>
+
+            <p style={{ margin: '0 0 40px 0' }}>Machine Learning projects and competitions.</p>
 
             <h3 style={{ color: colors.textMain, fontSize: '1.2rem', margin: '15px 0 -10px 0' }}>
               Titanic - Machine Learning from Disaster
             </h3>
-            <p style={{ marginBottom: '24px'}}>
-              In this challenge, I built predictive models that answer the question: “what sorts of people were more likely to survive?” using passenger data (ie name, age, gender, socio-economic class, etc).
+            <p style={{ marginBottom: '24px' }}>
+              In this challenge, I built predictive models that answer the question: “what people were more likely to survive the sinking of the Titanic?” using passenger data.
+              This is a classification problem, so scores were calculated using accuracy - meaning that a score of 1 is perfect.
             </p>
-            
-            <p style={{ fontWeight: '600', color: colors.textMain, marginBottom: '10px', fontSize: '0.95rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Top 5 Scores(Accuracy):</p>
-            <img 
-              src={scores} 
-              alt="top 5 scores"
-              style={{ width: '100%', height: 'auto', borderRadius: '8px', border: `1px solid ${colors.border}`}} 
-            />
-            
-            <p style={{ fontWeight: '600', color: colors.textMain, marginBottom: '10px', fontSize: '0.95rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Code(scrollable):</p>
-            
-            <div className="iframe-container">
-              <iframe 
-                className="notebook-iframe"
-                src="https://nbviewer.org/github/robbiem22/portfolio/blob/main/Kaggle/titanic.ipynb"
-                title="Titanic Jupyter Notebook" 
-              />
-            </div>
-            
+
+            {/* ---> TITANIC CODE LINK <--- */}
+            <Link
+              to="/titanic-details"
+              style={{
+                display: 'inline-block',
+                backgroundColor: colors.accent,
+                color: 'white',
+                padding: '10px 20px',
+                borderRadius: '8px',
+                textDecoration: 'none',
+                fontWeight: '600',
+                marginBottom: '20px'
+              }}
+            >
+              View Full Process →
+            </Link>
+
+            <p style={{ fontWeight: '600', color: colors.textMain, marginBottom: '10px', fontSize: '0.95rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>Top 5 Scores:</p>
+            <img src={scores} alt="top 5 scores" style={{ width: '100%', height: 'auto', borderRadius: '8px', border: `1px solid ${colors.border}` }} />
+
+
           </div>
 
           {/* Sports Analytics Card */}
@@ -224,17 +218,32 @@ function App() {
                 Python • Tableau
               </span>
             </div>
-            
+
             <p style={{ margin: '16px 0 20px 5px' }}>An exploratory data analysis of event-level data from recent fixtures.</p>
           </div>
 
         </div>
-
-        {/* --- 3. RIGHT COLUMN: Invisible Spacer --- */}
         <div className="spacer-column"></div>
-
       </div>
     </>
+  );
+}
+
+// --- APP COMPONENT ---
+function App() {
+  return (
+    <Router>
+      <Routes>
+        {/* The Home page will load when the URL is exactly "/" */}
+        <Route path="/" element={<Home />} />
+
+        {/* The Details page will load when the URL is "/titanic-details" */}
+        <Route path="/titanic-details" element={<TitanicDetails />} />
+
+        {/* The Code page will load when the URL is "/titanic-code" */}
+        <Route path="/titanic-code" element={<TitanicCode />} />
+      </Routes>
+    </Router>
   );
 }
 

@@ -1,0 +1,41 @@
+.sidebar {
+  position: fixed; /* always visible */
+  top: 0;
+  width: 300px;
+  height: 100vh;
+  padding: 1rem;
+  box-sizing: border-box;
+  background: #f8f9fb;
+  border-right: 1px solid #e2e6ef;
+  overflow-y: auto;
+  z-index: 50;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 40px;
+}
+
+.item + .item {
+  margin-top: 0.5rem;
+}
+
+.link {
+  display: block;
+  color: #374151;
+  text-decoration: none;
+  padding: 0.5rem;
+  border-radius: 6px;
+}
+
+.link:hover {
+  background: rgba(0,0,0,0.03);
+}
+
+.active {
+  background: #0ea5a4; /* accent */
+  color: white;
+  font-weight: 600;
+}
