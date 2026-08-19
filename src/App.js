@@ -44,15 +44,16 @@ function Home() {
           justify-content: left;
           align-items: flex-start;
           gap: 30px;
-          padding: 40px 120px;
+          padding: 40px 80px;
           min-height: 100vh;
         }
         .sidebar-column {
           flex: 1;
-          max-width: 240px;
+          max-width: 280px;
           position: sticky;
           top: 40px;
           z-index: 10;
+          margin-top: 10px;
         }
         .main-column {
           width: 100%;
@@ -126,9 +127,7 @@ function Home() {
 
         {/* TOP/LEFT COLUMN: Sidebar */}
         <div className="sidebar-column">
-          {/* Using 24px padding here for desktop, overridden to 16px on mobile via CSS */}
           <div className="sidebar-card" style={{ ...cardStyle, padding: '24px' }}>
-            {/* Using 16px margin here for desktop, overridden to 10px on mobile via CSS */}
             <h3 className="sidebar-title" style={{ marginTop: 0, color: colors.textMain, fontSize: '1.1rem', marginBottom: '16px', marginLeft: 10 }}>
               My Links
             </h3>

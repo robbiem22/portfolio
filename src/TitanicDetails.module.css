@@ -10,8 +10,8 @@ html {
 
 /* main content area offset to the right of the sidebar */
 .content {
-  margin-left: 310px; /* must match sidebar width */
-  padding: 2rem;
+  margin-left: 0px; /* must match sidebar width */
+  padding: 0rem 0rem;
   max-width: 1200px;
   width: 100%;
 }
